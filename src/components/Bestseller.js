@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchProductsByCategory } from "../utils/api.js";
 
-const TopRated = () => {
+const Bestseller = () => {
   const [products, setProducts] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const fetchTopRatedProducts = async () => {
-      const fetchedProducts = await fetchProductsByCategory("top rated");
+    const fetchBestsellers = async () => {
+      const fetchedProducts = await fetchProductsByCategory("best seller");
       setProducts(fetchedProducts);
     };
 
-    fetchTopRatedProducts();
+    fetchBestsellers();
   }, []);
 
   const handlePrevSlide = () => {
@@ -24,8 +24,8 @@ const TopRated = () => {
   };
 
   return (
-    <div className="my-8 text-center">
-      <h2 className="text-2xl text-white font-bold mb-4">Top Rated</h2>
+    <div className="my-8 text-center bg-[#171717]">
+      <h2 className="text-2xl text-white font-bold mb-4">Bestsellers</h2>
       <div className="relative inline-block">
         <div className="flex overflow-x-auto space-x-4 justify-center">
           {products
@@ -75,4 +75,4 @@ const TopRated = () => {
   );
 };
 
-export default TopRated;
+export default Bestseller;

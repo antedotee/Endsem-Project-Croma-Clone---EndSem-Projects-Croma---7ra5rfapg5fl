@@ -17,14 +17,14 @@ const Signup = () => {
 
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
-    myHeaders.append("projectID", "17s6e2yqyk71");
+    myHeaders.append("projectID", "7ra5rfapg5fl");
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
       name,
       email,
       password,
-      appType: "ott",
+      appType: "ecommerce",
     });
 
     const requestOptions = {
@@ -41,7 +41,7 @@ const Signup = () => {
       );
       const data = await response.json();
       if (data.status === "success") {
-        navigate("/home/signin");
+        navigate("/");
       } else {
         setErrorMessage(data.message);
         setTimeout(() => {
@@ -52,6 +52,7 @@ const Signup = () => {
       console.error(error);
     }
   };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-stone-800">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">

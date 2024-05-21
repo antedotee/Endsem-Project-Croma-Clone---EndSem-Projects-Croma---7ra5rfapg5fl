@@ -16,13 +16,13 @@ const Signin = () => {
 
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
-    myHeaders.append("projectID", "17s6e2yqyk71");
+    myHeaders.append("projectID", "7ra5rfapg5fl");
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
       email,
       password,
-      appType: "ott",
+      appType: "ecommerce",
     });
 
     const requestOptions = {
@@ -39,7 +39,7 @@ const Signin = () => {
       );
       const data = await response.json();
       if (data.status === "success") {
-        navigate("/home");
+        navigate("/");
       } else {
         setErrorMessage(data.message);
         setTimeout(() => {

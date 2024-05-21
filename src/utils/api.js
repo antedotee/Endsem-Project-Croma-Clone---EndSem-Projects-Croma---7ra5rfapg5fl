@@ -1,3 +1,4 @@
+// api.js
 const projectId = "7ra5rfapg5fl";
 
 export const fetchProductsByCategory = async (category) => {

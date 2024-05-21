@@ -9,10 +9,10 @@ import TopRated from "./components/TopRated";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
 import Error from "./components/Error";
+import ProductDetail from "./components/ProductDetail";
+import Bestseller from "./components/Bestseller";
 
 function App() {
-  const projectId = "7ra5rfapg5fl";
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -21,11 +21,12 @@ function App() {
         {
           path: "",
           element: (
-            <>
+            <div className="bg-[#171717] min-h-screen">
               <Trending />
               <NewArrivals />
               <TopRated />
-            </>
+              <Bestseller />
+            </div>
           ),
         },
         {
@@ -36,6 +37,10 @@ function App() {
           path: "signup",
           element: <Signup />,
         },
+        {
+          path: "/products/:productId",
+          element: <ProductDetail />,
+        },
       ],
     },
     {
@@ -44,25 +49,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <div className="bg-[#171717] min-h-screen">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;
-
-// import React,{useState} from "react";
-// import Routes from "./Components/routes";
-
-// function App() {
-//   const [register, changeRegister] = useState(true)
-//   const [loginStatus, setLoginStatus] = useState(false)
-//   function changeSign(){
-//     register === true ? changeRegister(false) : changeRegister(true)
-//   }
-//   return (
-//     <div className="App text-3xl">
-//       <Routes loginStatus = {loginStatus} setLoginStatus = {setLoginStatus}/>
-//     </div>
-//   );
-// }
-
-// export default App;
