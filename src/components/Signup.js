@@ -1,7 +1,10 @@
+// Signup.js
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const Signup = () => {
+  const { login } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +44,7 @@ const Signup = () => {
       );
       const data = await response.json();
       if (data.status === "success") {
+        login(); // Automatically log in the user
         navigate("/");
       } else {
         setErrorMessage(data.message);

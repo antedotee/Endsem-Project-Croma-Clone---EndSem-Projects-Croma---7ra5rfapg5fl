@@ -1,5 +1,7 @@
+// App.js
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 
 import "./css/main.css";
 import Navbar from "./components/Navbar";
@@ -50,9 +52,11 @@ function App() {
   ]);
 
   return (
-    <div className="bg-[#171717] min-h-screen">
-      <RouterProvider router={router} />
-    </div>
+    <AuthProvider>
+      <div className="bg-[#171717] min-h-screen">
+        <RouterProvider router={router} />
+      </div>
+    </AuthProvider>
   );
 }
 
